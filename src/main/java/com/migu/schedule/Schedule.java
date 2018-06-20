@@ -4,19 +4,16 @@ package com.migu.schedule;
 import com.migu.schedule.constants.ReturnCodeKeys;
 import com.migu.schedule.info.TaskInfo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
 *类名和方法不能修改
  */
 public class Schedule {
 
-    Map<Integer, Integer> nodeIdMap = new HashMap<Integer, Integer>();
-    Map<Integer, TaskInfo> taskInfoMap = new HashMap<Integer, TaskInfo>();
-    TaskInfo taskInfo = new TaskInfo();
+    Map<Integer, Integer> nodeIdMap = new LinkedHashMap<Integer, Integer>();
+    Map<Integer, TaskInfo> taskInfoMap = new LinkedHashMap<Integer, TaskInfo>();
+    //TaskInfo taskInfo = new TaskInfo();
 
     public int init() {
         nodeIdMap.clear();
@@ -64,6 +61,7 @@ public class Schedule {
                 System.out.println("E010:任务已添加");
                 return ReturnCodeKeys.E010;
             }
+            TaskInfo taskInfo = new TaskInfo();
             taskInfo.setTaskId(taskId);
             taskInfo.setNodeId(consumption);
             taskInfoMap.put(taskId, taskInfo);
@@ -99,7 +97,7 @@ public class Schedule {
 
 
     public int queryTaskStatus(List<TaskInfo> tasks) {
-        // TODO 方法未实现
+
         return ReturnCodeKeys.E000;
     }
 
