@@ -8,7 +8,6 @@ public class OneTest {
   public void testFoo() throws Exception {
     One one = new One();
     //Test foo
-    System.out.println("master分支");
     System.out.println("dev分支");
     assertEquals("foo", one.foo());
   }
